@@ -1,0 +1,55 @@
+✅ 1. Autenticación (Authentication) – ¿Quién eres?
+La autenticación es el proceso de verificar la identidad de un usuario.
+
+📌 Ejemplo en la vida real:
+Cuando ingresas a una cuenta de correo electrónico, el sistema te pide usuario y contraseña para comprobar que realmente eres tú.
+
+📌 Ejemplo en FastAPI:
+Se usa OAuth2 con JWT, autenticación básica, o sistemas como Passlib para gestionar contraseñas.
+
+python
+Copiar
+Editar
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer
+
+app = FastAPI()
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+@app.get("/users/me")
+async def read_users_me(token: str = Depends(oauth2_scheme)):
+    return {"message": "Usuario autenticado", "token": token}
+👆 Aquí se usa OAuth2 para verificar que el usuario tenga un token válido.
+
+✅ 2. Autorización (Authorization) – ¿Qué puedes hacer?
+La autorización determina qué permisos tiene un usuario autenticado.
+
+📌 Ejemplo en la vida real:
+En una empresa, los empleados pueden ingresar al edificio, pero no todos pueden acceder a la oficina del director.
+
+📌 Ejemplo en FastAPI:
+Un usuario puede estar autenticado, pero puede que no tenga permisos para acceder a ciertos endpoints.
+
+-
+        @app.get("/admin/")
+        async def admin_route(user_role: str):
+            if user_role != "admin":
+                raise HTTPException(status_code=403, detail="No tienes permisos")
+            return {"message": "Bienvenido, Admin"}
+            
+👆 Aquí solo los usuarios con rol "admin" pueden acceder.
+
+🔑 Diferencias clave entre Autenticación y Autorización
+Concepto	¿Qué verifica?	¿Ejemplo en FastAPI?
+Autenticación	¿Quién eres?	Verificar usuario y contraseña
+Autorización	¿Qué puedes hacer?	Verificar permisos y roles
+🔥 Tecnologías usadas en FastAPI para autenticación y autorización
+Autenticación: OAuth2, JWT, autenticación básica
+
+Autorización: Roles, permisos, políticas de acceso
+
+📌 Conclusión:
+✅ Primero se autentica un usuario (comprobar identidad).
+✅ Luego se autoriza (verificar permisos de acceso).
+
+Así es como se controla el acceso seguro en una API backend. 🚀🔒

@@ -1,0 +1,11 @@
+📌 Recursos Estáticos en FastAPI
+🔹 ¿Qué son?
+Los recursos estáticos son archivos que no cambian en cada petición y que se sirven tal cual al cliente. Ejemplos: imágenes, archivos CSS, JavaScript, fuentes, PDFs, etc.
+
+🔹 Cómo servir recursos estáticos en FastAPI
+FastAPI no tiene soporte directo para servir archivos estáticos como Flask, pero se puede hacer con Starlette, que es el framework en el que se basa FastAPI.
+
+📌 Beneficios de Servir Archivos Estáticos en FastAPI
+✅ Permite agregar estilos (CSS) y scripts (JS) en la app.
+✅ Sirve imágenes, PDFs y otros archivos de forma eficiente.
+✅ Mejora el rendimiento al evitar regenerar contenido en cada petición.

@@ -1,0 +1,16 @@
+📌 Resumen sobre los Routers en FastAPI
+🔹 ¿Qué son?
+Los routers en FastAPI permiten dividir y modularizar la API en diferentes archivos para organizar mejor el código y hacerla más escalable.
+
+🔹 ¿Cómo funcionan?
+
+Se usa APIRouter() para definir un grupo de rutas relacionadas.
+
+Se puede asignar un prefijo (prefix="/nombre") para que todas las rutas dentro del router compartan la misma base de URL.
+
+Luego, el router se incluye en la aplicación principal con app.include_router(router).
+
+
+🔹 Ventajas de usar Routers: ✅ Código más limpio y organizado.
+✅ Facilita la escalabilidad y mantenimiento.
+✅ Permite manejar múltiples módulos en la API.

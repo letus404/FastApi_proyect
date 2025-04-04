@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+venv/
+.env/
+.env.*
+
+# Configuración de entorno
+*.env
+
+# Bases de datos locales
+*.sqlite3
+
+# Logs
+*.log
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# VSCode settings (opcional, solo si quieres ignorarlos)
+.vscode/
+
+# Archivos de dependencias creados automáticamente
+pip-wheel-metadata/
